@@ -1,0 +1,49 @@
+<div id='post-container'>
+    <div id="post">
+        <% if(locals.user) {%>
+        <div id='make-new-post'>
+            <form action="/posts/create" id="new-post-form" method="POST" enctype="multipart/form-data">
+                <div class='post-sub-container' >
+                    <div>
+                        <img src="<%=user.avatar%>" alt="" width="60" height="60" style="border-radius: 100px;">
+                    </div>
+                    <textarea name="content" id="" cols="30" rows="1" placeholder="What's on your mind?"></textarea>
+                </div>
+                <div class="post-sub-container">
+                    <label for="file">Image</label>
+                    <input type="file" name="image" id="file" >
+                    <input id='new-post' type="submit" value="Post">
+                </div>
+            </form>
+        </div>
+        <% } %>
+
+        <div id='posts-list-container'>
+            <% for(p of posts){ %>
+                <%- include('posts') -%>
+            <% } %>
+        </div>
+    </div>
+
+    <% if(locals.user){ %>
+        <section id="friends">
+            <h4 style="width: 100%;">Users</h4>
+            <div class="d-flex flex-column" style="width: 100%;">
+                <% for( u of users) { %>
+                <a class="friend-list ml-3" style="text-decoration: none; color: black;" href="/users/profile/<%=u.id%>">
+                    <div class="d-flex p-1" >
+                        <div style="width: 17%;">
+                            <img  src="<%=u.avatar%>" alt="" width="35" height="35" style="border-radius: 100px;">
+                        </div>
+                        <%=u.name%>
+                    </div>
+                </a>
+                <%} %> 
+            </div>
+        </section>
+    <% } %>
+
+    
+</div>
+
+

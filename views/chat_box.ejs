@@ -1,0 +1,59 @@
+
+
+<% if(locals.user) { %>
+
+    
+
+
+<div id='chat-box'>
+    <div id='chat-header' >
+        
+        <div id='chat-header-info' class="d-flex align-items-center justify-content-between">
+            <span id="chat-text-header">Chat</span>
+            <i class="fas fa-chevron-circle-up"></i>
+        </div>
+    </div>
+    <div id='chat-box-popup'>
+        <ul id='chat-message-list'>
+        </ul>
+        <div id="chat-message-input-container">
+            <input id='message' type="text" name="message" value="" placeholder="Enter Message...">
+            <button id='send-message'>Send</button>
+        </div>
+    </div>
+</div>
+
+<% } %>
+
+
+<script>
+
+    $('#chat-header-info>i').click(function(e){
+        let self=this;
+        $("#chat-box-popup").slideToggle(500,function(){
+            $(this).css("bottom","55px");
+            
+        });
+        $("#chat-header").css('transition','all 0.6s')
+        // $("#chat-header").css('bottom','495px')
+        // $(self).addClass("fas fa-chevron-circle-down");
+        // $(self).toggleClass()
+        // $("#chat-header-info>i").toggleClass(0);
+        $("#chat-header-info>i").toggleClass("fa-chevron-circle-up");
+        $("#chat-header-info>i").toggleClass("fa-chevron-circle-down");
+        // $("#chat-header").css('bottom','10px')
+    })
+        
+        
+        // $(".up").click(function(e){
+        //     console.log("skjdfnlk");
+        //     $(this).removeClass("up");
+        //     $(this).addClass("down");
+        //     // $("#chat-box-popup").slideToggle(500);
+        //     $(".down").click(function(e){
+        //         $(this).removeClass("down");
+        //         $(this).addClass("up");
+        //     });
+        // });
+    
+</script>

@@ -1,0 +1,18 @@
+{
+  "css/chat_box.css": "css/chat_box-b8a6562374.css",
+  "css/footer.css": "css/footer-7be8fac963.css",
+  "css/header.css": "css/header-49b3275e15.css",
+  "css/home.css": "css/home-d337d54e62.css",
+  "css/layout.css": "css/layout-f706234aba.css",
+  "css/posts.css": "css/posts-1f06612be3.css",
+  "css/profile.css": "css/profile-394102c1c7.css",
+  "css/reset_mail_sent.css": "css/reset_mail_sent-4dda037030.css",
+  "css/search_users.css": "css/search_users-4ec50f478d.css",
+  "css/signin.css": "css/signin-cd6a16a181.css",
+  "images/milkyway.jpeg": "images/milkyway-63839be89d.jpeg",
+  "js/chat_engine.js": "js/chat_engine-aaa39cd5c2.js",
+  "js/home_posts_comments.js": "js/home_posts_comments-21b7de5364.js",
+  "js/likes.js": "js/likes-e1b9672ac4.js",
+  "js/makeposts.js": "js/makeposts-7d44647fd8.js",
+  "js/typing_effect.js": "js/typing_effect-3722ce60d7.js"
+}

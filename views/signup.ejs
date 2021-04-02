@@ -1,0 +1,24 @@
+<div class="parent-div" style="background-image: url( <%= assetPath('images/milkyway.jpeg') %>) !important;" >
+    <h2 id='typing-text'></h2>
+    <div class='form-container'>
+       <form action="/users/create" method="POST">
+          <input class="width-100" type="text"  id="name" name="name" placeholder="Name">
+          <input class="width-100" type="email" id="email" name="email" placeholder="Email address">
+          <input class="width-100" type="password" name="password" id="password" placeholder="Password">
+          <input class="width-100" type="submit" id='login' value="Sign Up">
+          <div class="border-gray"></div>
+          
+          <p>OR</p>
+          <a href="/users/auth/google" class="google" style="background-color: #55b72d;">
+             <i class="fab fa-google"></i>
+             <span> Sign in with Google</span>
+          </a>
+       </form>
+    </div>
+ </div>
+ 
+ <%- include("footer"); %>
+ 
+ <script src="<%= assetPath('js/typing_effect.js') %>"></script>
+
+

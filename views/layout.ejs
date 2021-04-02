@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<%= assetPath('css/header.css') %>">
+    <link rel="stylesheet" href="<%= assetPath('css/layout.css') %>">
+    <link rel="stylesheet" href="<%= assetPath('css/footer.css') %>"> 
+    <link rel="stylesheet" href="<%= assetPath('css/signin.css') %>">
+    <link rel="stylesheet" href="<%= assetPath('css/posts.css') %>">
+    <link rel="stylesheet" href="<%= assetPath('css/profile.css') %>">
+    <link rel="stylesheet" href="<%= assetPath('css/chat_box.css') %>">
+    <link rel="stylesheet" href="<%= assetPath('css/home.css') %>">
+    <link rel="stylesheet" href="<%= assetPath('css/reset_mail_sent.css') %>">
+    <link rel="stylesheet" href="<%= assetPath('css/search_users.css') %>">
+    <script src="https://kit.fontawesome.com/f9e99e72a3.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <%- include("header"); %>
+    
+    
+    
+    <main id="layout-main">
+        <%- body %>
+    </main>
+
+
+    
+    <%- include("chat_box"); %>
+
+   
+    <script>
+        <% if (flash.success && flash.success.length > 0) {%>
+                new Noty({
+                    theme: 'relax',
+                    text: "<%= flash.success %>",
+                    type: 'success',
+                    layout: 'topRight',
+                    timeout: 1500
+                    
+                }).show();    
+            <%} %>
+
+            <% if (flash.error && flash.error.length > 0) {%>
+                new Noty({
+                    theme: 'relax',
+                    text: "<%= flash.error %>",
+                    type: 'error',
+                    layout: 'topRight',
+                    timeout: 1500
+                    
+                }).show();    
+            <%} %>
+    </script>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.js" integrity="sha512-2RDFHqfLZW8IhPRvQYmK9bTLfj/hddxGXQAred2wNZGkrKQkLGj8RCkXfRJPHlDerdHHIzTFaahq4s/P4V6Qig==" crossorigin="anonymous"></script>
+
+    <script src="<%= assetPath('js/chat_engine.js') %>"></script>
+    <script src="<%= assetPath('js/likes.js') %>"></script>
+    <script src="<%= assetPath('js/home_posts_comments.js') %>"></script>
+    <script src="<%= assetPath('js/makeposts.js') %>"></script>
+
+<% if(locals.user) { %>
+    <script>
+        new ChatEngine('chat-box', "<%= user.email %>","<%= user.name %>","<%= user.avatar %>");
+    </script>
+<% } %>
+</body>
+</html>

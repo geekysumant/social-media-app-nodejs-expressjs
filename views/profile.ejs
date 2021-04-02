@@ -1,0 +1,81 @@
+<!-- <h1>User Profile</h1>
+
+<img src="<%=profile_user.avatar%>" alt="<%=user.name%>" width="100px">
+
+<h5><%=profile_user.name%></h5>
+<h5><%=profile_user.email%></h5>
+
+
+<%if(user.id==profile_user.id){%>
+    <form action="/users/update/<%=user.id%>" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" value="<%=user.name%>" required>
+        <input type="email" name="email" value="<%=user.email%>" required>
+        <input type="file" name="avatar" id="" placeholder="Profile Picture">
+
+        <button type="submit">Submit</button>
+    </form> 
+<%}%>
+
+ -->
+
+
+
+ <section id="main-header">
+    <%if(user.id==profile_user.id){%>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+        <i class="fas fa-pen"></i>
+        <span>Edit Profile</span>
+    </button>
+    <%}%>
+ </section>
+
+ <section id='profile-image'>
+     <div id='my-image'>
+        <img src="<%=profile_user.avatar%>" alt="<%=user.name%>">
+    </div>
+    <h2> <%= profile_user.name %></h2>
+ </section>
+
+ <section id='posts-list-container'>
+    <% for(p of posts){ %>
+        <%- include('posts') -%>
+    <% } %>
+ </section>
+
+  
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/users/update/<%=user.id%>" method="POST" enctype="multipart/form-data" >
+                <label for="name" class="form-label">Name</label>
+                <input id="name" class="form-control mb-3" type="text" name="name" value="<%=user.name%>" required>
+
+                <label for="email" class="form-label">Email</label>
+                <input id='email' class="form-control mb-3" type="email" name="email" value="<%=user.email%>" required>
+
+                <label for="avatar" class="form-label">Profile Picture</label>
+                <input id='avatar' class="form-control mb-3" type="file" name="avatar" id="" >
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+
+  <script src="<%= assetPath('js/makeposts.js') %>">
+  postAjax();
+  </script>

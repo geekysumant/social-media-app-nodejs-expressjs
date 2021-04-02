@@ -1,0 +1,44 @@
+<!-- <div>
+   <form method="POST" action="/users/create-session">
+      
+         <label for="email" class="form-label">Email address</label>
+         <input type="email" class="form-control" id="email" name="email">
+      
+      
+         <label for="password" class="form-label">Password</label>
+         <input type="password" class="form-control" id="password" name="password">
+      
+      
+         <button type="submit" class="btn btn-primary ">Login</button>
+      
+      
+         <span>Don't have an account?</span>
+         <a href="/users/signup">Create Now!</a>
+      
+   </form>
+</div> -->
+
+<div class="parent-div" style="background-image: url( <%= assetPath('images/milkyway.jpeg') %>) !important;" > 
+   <h2 id='typing-text'></h2>
+   <div class='form-container'>
+      <form action="/users/create-session" method="POST">
+         <input class="width-100" type="email" id="email" name="email" placeholder="Email address">
+         <input class="width-100" type="password" name="password" id="password" placeholder="Password">
+         <input class="width-100" type="submit" id='login' value="Log In">
+         <a id='forgot' href="/reset-password">Forgotten password?</a>
+         <div class="border-gray"></div>
+         <a href="/users/signup" id='create'>
+             Create New Account
+         </a>
+         <p>OR</p>
+         <a href="/users/auth/google" class="google">
+            <i class="fab fa-google"></i>
+            <span> Sign in with Google</span>
+         </a>
+      </form>
+   </div>
+</div>
+
+<%- include("footer"); %>
+
+<script src="<%= assetPath('js/typing_effect.js') %>"></script>
